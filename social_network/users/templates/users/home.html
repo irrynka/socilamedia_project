@@ -1,7 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container mt-5">
-    <h1 class="text-center">Welcome Home!</h1>
+<div class="text-center">
+    <div class="card p-5 mx-auto shadow-sm" style="max-width: 600px;">
+        <h1 class="mb-3">Welcome Home!</h1>
+        <p class="lead">This is your social network home page.</p>
+        {% if not user.is_authenticated %}
+        <a href="{% url 'login' %}" class="btn btn-primary me-2">Login</a>
+        <a href="{% url 'register' %}" class="btn btn-success">Register</a>
+        {% endif %}
+    </div>
 </div>
 {% endblock %}
